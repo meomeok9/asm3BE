@@ -26,7 +26,7 @@ const server = http.createServer(app);
 const frontEnd = process.env.CLIENT_FE;
 const adminApp = process.env.CLIENT_ADMIN;
 const corsOpts = {
-  origin: [frontEnd, adminApp],
+  origin: [frontEnd, adminApp,"https://asm-3-admin.vercel.app"],
   methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true,
 };
