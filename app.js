@@ -23,9 +23,10 @@ const adminRoute = require("./routes/admin");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
-
+const frontEnd = process.env.CLIENT_FE;
+const adminApp = process.env.CLIENT_ADMIN;
 const corsOpts = {
-  origin: ["http://localhost:3000", "http://localhost:3001"],
+  origin: [frontEnd, adminApp],
   methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true,
 };
@@ -76,13 +77,6 @@ app.use(
     },
   })
 );
-app.use((req, res, next) => {
-  if (req.session.user) {
-    console.log("#9 request user role :", req.session.user.role);
-    console.log("#10 request user full name :", req.session.user.fullName);
-  }
-  next();
-});
 
 // app.use(csurfProtection);
 // app.use(flash());
