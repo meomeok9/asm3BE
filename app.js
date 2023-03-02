@@ -23,10 +23,11 @@ const adminRoute = require("./routes/admin");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
-const frontEnd = process.env.CLIENT_FE;
-const adminApp = process.env.CLIENT_ADMIN;
+const FRONTEND = process.env.CLIENT_FE;
+const FRONTEND_ADMIN = process.env.CLIENT_ADMIN;
+app.set("trust proxy", 1);
 const corsOpts = {
-  origin: [frontEnd, adminApp],
+  origin: [FRONTEND, FRONTEND_ADMIN],
   methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true,
 };
