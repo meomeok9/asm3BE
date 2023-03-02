@@ -1,9 +1,9 @@
-h1 {
+.indexbody h1 {
   color: red;
   font-size: larger;
   text-align: center;
 }
-body {
+.indexbody {
   display: flex;
   justify-content: center;
   align-items: center;

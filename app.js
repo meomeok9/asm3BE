@@ -38,7 +38,7 @@ app.use(cors(corsOpts));
 const URI = process.env.MONGODB_URI;
 app.use("/", (req, res, next) => {
   res.sendFile(path.join(__dirname, "./Views", "index.html"));
-  next();
+  //next();
 });
 const store = new MongoDBStore({
   uri: URI,
