@@ -1,4 +1,3 @@
-const User = require("./models/users");
 const fs = require("fs");
 require("dotenv").config();
 const express = require("express");
@@ -37,7 +36,10 @@ const PORT = +process.env.PORT;
 app.use(cors(corsOpts));
 
 const URI = process.env.MONGODB_URI;
-
+app.use("/", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "./Views", "index.html"));
+  next();
+});
 const store = new MongoDBStore({
   uri: URI,
   collection: "secret",
